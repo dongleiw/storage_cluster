@@ -1,0 +1,10 @@
+1. 监听端口2345
+2. 管理vdi和chunk
+
+处理消息:
+	1. chunkserver发送过来的心跳, 回复response
+		
+	2. 创建vdi请求
+		创建元数据
+		通知chunkserver创建chunk
+	3. 

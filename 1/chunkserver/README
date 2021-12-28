@@ -1,0 +1,11 @@
+1. 定时向master发心跳
+2. 监听2346端口
+	1. clientsdk发送过来的io write request
+		sector的倍数
+		进行读写
+
+
+chunk
+	每个chunk大小为256B = sector大小
+	每个chunk文件名为chunkid名
+	chunk覆盖写

@@ -1,0 +1,14 @@
+实现一个最简单的数据存储集群
+
+目录:
+	master
+		master模块, 负责创建/删除vdi, 管理元数据, 管理chunkserver
+	chunkserver
+		负责chunk的读写
+	clientsdk
+		lib库. 将底层读写转换为open, read, write, close接口
+	tool
+		工具. 创建vdi, 获取vdi信息, 获取chunkserver信息等
+
+
+

@@ -1,0 +1,1 @@
+1. 连接chunkserver, 调用writechunk写数据
