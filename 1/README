@@ -1,16 +1,21 @@
 实现一个最简单的数据存储集群
-	没有多副本提供高可用
-	没有鉴权, clientsdk可以读写所有chunk
+	不考虑高可用: 没有多副本, 类似raid0
+	不考虑鉴权: clientsdk可以读写所有chunk
 
 目录:
 	master
 		master模块, 负责创建/删除vdi, 管理元数据, 管理chunkserver
 	chunkserver
 		负责chunk的读写
+		数据存储在sparse file中
 	clientsdk
-		lib库. 将底层读写转换为open, read, write, close接口
+		lib库. 将底层读写转换为open, read, write, seek, close接口
+		读写接口 sector(256Byte)对齐
 	tool
 		工具. 创建vdi, 获取vdi信息, 获取chunkserver信息等
 
-
-
+数据:
+	vdi 云盘
+	chunk 按照sector(256Byte)切割vdi
+		如果云盘比较大, 会导致chunk非常多
+		如果chunk未写过, 不存储实际数据, 读取得到的数据未定义
