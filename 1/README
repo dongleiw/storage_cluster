@@ -7,7 +7,7 @@
 		master模块, 负责创建/删除vdi, 管理元数据, 管理chunkserver
 	chunkserver
 		负责chunk的读写
-		数据存储在sparse file中
+		数据存储存储在文件系统中, 每个文件是一个chunk
 	clientsdk
 		lib库. 将底层读写转换为open, read, write, seek, close接口
 		读写接口 sector(256Byte)对齐
